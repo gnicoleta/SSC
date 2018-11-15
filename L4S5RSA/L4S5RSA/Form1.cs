@@ -57,6 +57,15 @@ namespace L4S5RSA
         {
             ciphertext = asmAlg.Encrypt(myConv.StringToByteArray(textBox1.Text), true);
             richTextBox3.Text = myConv.ByteArrayToHexString(ciphertext);
+
+            //conversion from bytearray to String (Encoding.ASCII.GetString(bytes))
+            //from string to byte array (Encoding.ASCII.GetBytes(string))
+            //from byteArray to hexString BitConverter.ToString(bytes).Replace("-", "");
+            //hexString to byte array Encoding.ASCII.GetBytes(hex)
+            byte[] cipher2 = asmAlg.Encrypt(Encoding.ASCII.GetBytes(textBox1.Text), true);
+            string hexString = BitConverter.ToString(cipher2).Replace("-", "");
+            bool isSame = Encoding.ASCII.GetBytes(hexString)==(cipher2);
+            System.Windows.Forms.MessageBox.Show("Cipher:" + hexString + "HexString to Bytearray then convert that hex byteArray to hexstring: " + Encoding.ASCII.GetString(Encoding.ASCII.GetBytes(hexString)));
         }
 
         //decrypt
@@ -64,6 +73,9 @@ namespace L4S5RSA
         {
             plain = asmAlg.Decrypt(myConv.HexStringToByteArray(richTextBox3.Text), true);
             textBox1.Text = myConv.ByteArrayToString(plain);
+
+           
+
         }
 
         //sign
