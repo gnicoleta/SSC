@@ -92,17 +92,18 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(362, 117);
+            this.richTextBox1.Location = new System.Drawing.Point(194, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(284, 260);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(515, 132);
+            this.richTextBox2.Location = new System.Drawing.Point(494, 12);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox2.Size = new System.Drawing.Size(271, 260);
             this.richTextBox2.TabIndex = 6;
             this.richTextBox2.Text = "";
             // 
@@ -124,7 +125,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(649, 33);
+            this.textBox1.Location = new System.Drawing.Point(652, 416);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 9;

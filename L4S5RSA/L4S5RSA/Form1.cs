@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace L4S5RSA
 {
@@ -35,7 +36,19 @@ namespace L4S5RSA
             //public key
             richTextBox2.Text = asmAlg.ToXmlString(false);
 
-            System.Windows.Forms.MessageBox.Show("Private key: " + asmAlg.ToXmlString(true) + "\n" + "Public key: " + asmAlg.ToXmlString(false));
+            //This shows all
+            //System.Windows.Forms.MessageBox.Show("Private key: " + asmAlg.ToXmlString(true) + "\n" + "Public key: " + asmAlg.ToXmlString(false));
+
+            //Parse the XML (public key)
+            XElement PBElemnts = XElement.Parse(asmAlg.ToXmlString(false));
+            //Get the value of the PbKey
+            var PBKey = PBElemnts.Element("Modulus").Value; //how you get the value of an atribute in XML
+
+            //Parse the XML (private key)
+            XElement PVElemnts = XElement.Parse(asmAlg.ToXmlString(true));
+
+            System.Windows.Forms.MessageBox.Show("Pbulic: " + PBElemnts + "\n\nPrivate: " + PVElemnts);
+            
 
         }
 
@@ -144,6 +157,11 @@ namespace L4S5RSA
                 }
                 return value;
             }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
